@@ -8,7 +8,7 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { WebBadge } from '@/components/web-badge';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
-
+const broken = ;
 const SAMPLE_PRODUCTS = [
   { id: '1', name: 'Wireless Headphones', price: '$59.99' },
   { id: '2', name: 'Smart Watch', price: '$129.00' },
