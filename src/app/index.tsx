@@ -9,6 +9,12 @@ import { ThemedView } from '@/components/themed-view';
 import { WebBadge } from '@/components/web-badge';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
 
+const SAMPLE_PRODUCTS = [
+  { id: '1', name: 'Wireless Headphones', price: '$59.99' },
+  { id: '2', name: 'Smart Watch', price: '$129.00' },
+  { id: '3', name: 'Bluetooth Speaker', price: '$34.50' },
+];
+
 function getDevMenuHint() {
   if (Platform.OS === 'web') {
     return <ThemedText type="small">use browser devtools</ThemedText>;
@@ -40,6 +46,16 @@ export default function HomeScreen() {
           <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#e63946', textAlign: 'center' }}>
             Name: Saadullah{'\n'}Roll No: i22-8795
           </Text>
+
+          <ThemedView type="backgroundElement" style={styles.productsSection}>
+            <ThemedText type="smallBold">Products</ThemedText>
+            {SAMPLE_PRODUCTS.map((product) => (
+              <ThemedView key={product.id} type="backgroundElement" style={styles.productRow}>
+                <ThemedText>{product.name}</ThemedText>
+                <ThemedText type="code">{product.price}</ThemedText>
+              </ThemedView>
+            ))}
+          </ThemedView>
         </ThemedView>
 
         <ThemedText type="code" style={styles.code}>
@@ -87,6 +103,18 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: 'center',
+  },
+  productsSection: {
+    alignSelf: 'stretch',
+    gap: Spacing.two,
+    paddingHorizontal: Spacing.three,
+    paddingVertical: Spacing.three,
+    borderRadius: Spacing.three,
+  },
+  productRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   code: {
     textTransform: 'uppercase',
